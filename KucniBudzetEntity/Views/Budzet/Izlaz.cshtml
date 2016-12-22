@@ -1,0 +1,48 @@
+﻿@model IEnumerable<KucniBudzetEntity.Models.BudzetTabela>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pregled izlaza iz budzeta</h2>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            Opis
+        </th>
+        <th>
+            Iznos
+        </th>
+        <th>
+            Primanja
+        </th>
+        <th>
+            Datum
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.UlazIzlaz != true)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Iznos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UlazIzlaz)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datum)
+                </td>
+            </tr>
+        }
+
+    }
+</table>
+@Html.ActionLink("Nazad", "Index","Home")
